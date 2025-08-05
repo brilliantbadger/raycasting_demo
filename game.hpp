@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "sprites.hpp"
+#include "raycaster.hpp"
 
 class game
 {
@@ -50,6 +51,8 @@ class game
         grid map;
 
         point point1, point2;
+
+        raycaster ray;
 };
 
 #endif

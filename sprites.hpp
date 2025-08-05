@@ -18,6 +18,7 @@ class grid {
         void draw(SDL_Renderer* renderer);
         void fill_cells(int xpos, int ypos);
         void remove_cells(int xpos, int ypos);
+        std::vector<std::vector<cell>> get_layout();
 
     private:
         int cell_size;

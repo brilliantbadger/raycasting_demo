@@ -72,6 +72,11 @@ void grid::remove_cells(int xpos, int ypos)
     }
 }
 
+std::vector<std::vector<cell>> grid::get_layout()
+{
+    return layout;
+}
+
 void point::draw(SDL_Renderer* renderer) 
 {
     SDL_Rect rect = {xpos,
