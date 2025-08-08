@@ -133,11 +133,10 @@ void game::render()
  
     map.draw(renderer);
 
+    ray.cast_ray(renderer, point1.get_xcen(), point1.get_ycen(), point2.get_xcen(), point2.get_ycen(), map.get_layout(), cell_size);
+
     point1.draw(renderer);
     point2.draw(renderer);
-
-    ray.cast_ray(renderer, point1.xpos, point1.ypos, point2.xpos, point2.ypos, map.get_layout(), cell_size);
-
     SDL_RenderPresent(renderer);
 }
 

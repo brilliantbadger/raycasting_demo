@@ -77,6 +77,16 @@ std::vector<std::vector<cell>> grid::get_layout()
     return layout;
 }
 
+int point::get_xcen()
+{
+    return xpos + size/2;
+}
+
+int point::get_ycen()
+{
+    return ypos + size/2;
+}
+
 void point::draw(SDL_Renderer* renderer) 
 {
     SDL_Rect rect = {xpos,
@@ -99,54 +109,68 @@ void point::draw(SDL_Renderer* renderer)
     SDL_RenderDrawRect(renderer, &rect);    
 }
 
+void point::draw_cen(SDL_Renderer* renderer)
+{
+    SDL_Rect rect = {xpos - size/2,
+                     ypos - size/2,
+                     size,
+                     size};
+
+    SDL_SetRenderDrawColor(renderer,
+                           fill.r,
+                           fill.g,
+                           fill.b,
+                           fill.a);
+    SDL_RenderFillRect(renderer, &rect);
+
+    SDL_SetRenderDrawColor(renderer,
+                           outline.r,
+                           outline.g,
+                           outline.b,
+                           outline.a);
+    SDL_RenderDrawRect(renderer, &rect);
+}
+
 void point::move(const Uint8* keys, SDL_Scancode up, SDL_Scancode down,
                                     SDL_Scancode left, SDL_Scancode right) 
 {
     if (keys[up])
     {
-        if (ypos - speed <= 0)
+        ypos -= speed;
+
+        if (ypos <= 0)
         {
             ypos = 0;
-        }
-        else 
-        {
-            ypos -= speed;
         }
     }
 
     if (keys[down])
     {
-        if (ypos + speed >= bound_h - size)
+        ypos += speed;
+
+        if (ypos >= bound_h - size)
         {
             ypos = bound_h - size;
-        }
-        else
-        {
-            ypos += speed;
         }
     }
 
     if (keys[left])
     {
-        if (xpos - speed <= 0)
+        xpos -= speed;
+
+        if (xpos <= 0)
         {
             xpos = 0;
-        } 
-        else
-        {
-            xpos -= speed;
         }
     }
 
     if (keys[right])
     {
-        if (xpos + speed >= bound_w - size)
+        xpos += speed;
+
+        if (xpos >= bound_w - size)
         {
             xpos = bound_w - size;
-        }
-        else
-        {
-            xpos += speed;
         }
     }
 }

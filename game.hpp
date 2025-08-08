@@ -37,14 +37,14 @@ class game
         const int p1_xpos = 200;
         const int p1_ypos = 300;
         const int p1_size = 20;
-        const int p1_speed = 5;
+        const int p1_speed = 10;
         const SDL_Color p1_color = {169, 182, 101, SDL_ALPHA_OPAQUE};
         const SDL_Color p1_outline = {50, 48, 47, SDL_ALPHA_OPAQUE};
 
         const int p2_xpos = 600;
         const int p2_ypos = 300;
         const int p2_size = 20;
-        const int p2_speed = 5;
+        const int p2_speed = 10;
         const SDL_Color p2_color = {125, 174, 163, SDL_ALPHA_OPAQUE};
         const SDL_Color p2_outline = {50, 48, 47, SDL_ALPHA_OPAQUE};
 

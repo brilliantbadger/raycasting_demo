@@ -36,7 +36,10 @@ struct point
     int xpos, ypos, size, speed, bound_w, bound_h;
     SDL_Color fill, outline;
 
+    int get_xcen();
+    int get_ycen();
     void draw(SDL_Renderer* renderer);
+    void draw_cen(SDL_Renderer* renderer);
     void move(const Uint8* keys, SDL_Scancode up, SDL_Scancode down,
                                     SDL_Scancode left, SDL_Scancode right);
 };
